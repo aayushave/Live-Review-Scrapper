@@ -233,9 +233,6 @@ def my_form_post():
         tokens=text.split(" ")
         ngrams = zip(*[tokens[i:] for i in range(n)])
         return ["_".join(ngram) for ngram in ngrams]
-        
-        
-    
     
     rcParams['figure.figsize'] = 14,10 ## Sets the heigth and width of image
     fig,ax=plt.subplots(1,2)
@@ -246,8 +243,6 @@ def my_form_post():
     
     return render_template('index.html')
 
-
-
 @app.route('/predict',methods=['POST'])
 def predict():
 
@@ -257,8 +252,6 @@ def predict():
         vect = countVect.transform(data).toarray()
         my_prediction = mnb.predict(vect)
     return render_template('index.html',prediction = my_prediction)
-
-
 
 @app.route("/geti")
 def get_p():
