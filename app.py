@@ -30,18 +30,12 @@ def my_random_string(string_length=6):
     random = random.replace("-","")
     return random[0:string_length]
 
-
 app = Flask(__name__)
-
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 300
-
-
-
 mnb = pickle.load(open('Naive_Bayes_model.pkl','rb'))
 countVect = pickle.load(open('countVect.pkl','rb'))
 
 #Method Arena 
-
 def append_df_to_excel(filename, df, sheet_name='Sheet1', startrow=None,
                        truncate_sheet=False, 
                        **to_excel_kwargs):
@@ -113,14 +107,6 @@ def get_reviews(soup):
 
 #End Method Arena 
         
-    
-#Data Frame Image
-        
-
-    
-    
-
-#End Data Frame Image
 @app.after_request
 def add_header(response):
 # response.cache_control.no_store = True
@@ -220,13 +206,11 @@ def my_form_post():
     
     positive_reviews=df.loc[df['review_category']=='positive','Cleaned Reviews'].tolist()
     negative_reviews=df.loc[df['review_category']=='negative','Cleaned Reviews'].tolist()
-    print('194')
+    # print('194')
     #
     #POSITIVE AND NEGATIVE WORD CLOUD ARENA
     #
-    
-    
-    
+
     def getMostCommon(reviews_list,topn=20):
         reviews=" ".join(reviews_list)
         tokenised_reviews=reviews.split(" ")
@@ -249,9 +233,6 @@ def my_form_post():
         tokens=text.split(" ")
         ngrams = zip(*[tokens[i:] for i in range(n)])
         return ["_".join(ngram) for ngram in ngrams]
-        
-        
-    
     
     rcParams['figure.figsize'] = 14,10 ## Sets the heigth and width of image
     fig,ax=plt.subplots(1,2)
@@ -262,8 +243,6 @@ def my_form_post():
     
     return render_template('index.html')
 
-
-
 @app.route('/predict',methods=['POST'])
 def predict():
 
@@ -273,8 +252,6 @@ def predict():
         vect = countVect.transform(data).toarray()
         my_prediction = mnb.predict(vect)
     return render_template('index.html',prediction = my_prediction)
-
-
 
 @app.route("/geti")
 def get_p():
