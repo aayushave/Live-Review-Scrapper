@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <link href="/static/favicon.ico" rel="icon">
+    <title>True Review</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/static/assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="/static/assets/css/owl.css">
+	<style>
+.bbutton {
+    background-color: #3e6b89;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+	</style>
+  </head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <a href="index.html">True Review</a>
+              </div>
+            </header>
+
+            <!-- Banner -->
+            <section class="main-banner">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="banner-content">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="banner-caption">
+                            <h4>Hello, this is <em>True Review</em>.</h4>
+                            
+                            <p>Do you know that <strong>Reviews</strong> play an important role while you make a <strong>purchase</strong>? And thats why, we are here to help you.</p>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+			
+			
+			<section id="url" class="forms">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2>Enter URL</h2>
+                    </div>
+                    <form id="contact" action="" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <fieldset>
+                            <input name="text" type="text" class="form-control" id="name" placeholder="Insert URL.." required="">
+                          </fieldset>
+                        </div>
+						<div class="col-md-12">
+                          <button type="submit" id="predict-button" class="button">Process URL</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+      
+
+          
+            
+            <!-- Top Image -->
+            <section id="result" class="top-image">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="" id="fetch-p" height="600px" width="850px" alt="Count Plot">
+                    <div class="down-content">
+                      <h4>Plot Graph</h4>
+                       <button type="button" id="fetch-plot"  class="bbutton">Fetch Plot Graph</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+			
+			<!-- Top Image -->
+            <section class="left-image">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="" id="fetch-w"  height="600px" width="600px"   alt="Word Cloud">
+                    <div class="down-content">
+                      <h4>Word Cloud</h4>
+                        <button type="button" id="fetch-word" class="bbutton">Fetch Word Cloud</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+			
+			<!-- Top Image -->
+            <section class="top-image">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src=""  id="fetch-u"  height="800px" width="1200px" alt="Unigram">
+                    <div class="down-content">
+                      <h4>Unigram Graph</h4>
+                        <button type="button" id="fetch-unigram"  class="bbutton">Fetch Unigram Graph</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <section id="review">
+                 <form action="{{ url_for('predict')}}" method="POST">
+             		<h4>Predict Review</h4>
+             		<textarea name="Reviews" rows="6" cols="50" required></textarea>
+                 	
+                 	<div class="down-content">
+                      
+                        <button type="submit" class="bbutton" value="predict">Predict</button>
+                      
+                    </div>
+     			</form>
+     			<br>
+     			<div class="down-content">
+                	<h3><span style="color:white; background-color:green">Positive Review</span></h3>
+                	
+                	<h3><span style="color:white; background-color:red">Negative Review </span></h3>
+                	
+            	</div>
+        	</section>
+          
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar" >
+
+          <div class="inner">
+            <!-- Menu -->
+				<nav id="menu">
+				  <ul>
+					<li><a href="#url">Insert URL</a></li>
+					<li><a href="#result" >Get Results</a></li>
+					<li><a href="#review" style="margin-bottom:400px">Predict Review</a></li>
+					
+				  </ul>
+				</nav>
+		
+
+            <!-- Footer -->
+            <footer id="footer">
+              <p class="copyright">Copyright &copy; 2020
+              <br>Designed at VIT, Pune </p>
+            </footer>
+
+          </div>
+        </div>
+
+    </div>
+</body>
+
+  <!-- Scripts -->
+    
+  <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/static/assets/js/browser.min.js"></script>
+    <script src="/static/assets/js/breakpoints.min.js"></script>
+    <script src="/static/assets/js/transition.js"></script>
+    <script src="/static/assets/js/owl-carousel.js"></script>
+    <script src="/static/assets/js/custom.js"></script>
+    
+    
+    <script>
+
+   
+    $(document).ready(function() {
+       $('#fetch-plot').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_p') }}",
+           type: "GET",
+           success: function(response) {
+               $("#fetch-p").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+    
+     $(document).ready(function() {
+       $('#fetch-unigram').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_u') }}",
+           type: "GET",
+           success: function(response) {
+               $("#fetch-u").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+    
+     $(document).ready(function() {
+       $('#fetch-word').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_w') }}",
+           type: "GET",
+           success: function(response) {
+               $("#fetch-w").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+
+    
+    
+  </script>
+
+</html>
