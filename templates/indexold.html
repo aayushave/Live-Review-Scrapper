@@ -1,0 +1,140 @@
+<html>
+<head>
+	<title>True Review | Review Analyser System </title>
+	<link href="favicon.ico" rel="icon">
+<style>
+
+.button {
+    background-color: #3e6b89;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+ h1{
+    color: white;
+    overflow: hidden;
+    background-color: #3e6b89;
+    padding: 20px 10px
+    }
+.row{
+    color: white;
+    overflow: hidden;
+    background-color: #3e6b89;
+    padding: 8px 15px;
+    }
+
+    
+  
+</style>
+</head>
+
+	<body>
+	
+		<h1>True Review | Review Analyser System</h1>
+		<div><form method="POST">
+		<input id="image-selector" size="80" placeholder="Insert URL" type="text" name="text"> 
+		<input type='submit' id="predict-button" class="button" value="Process URL"/>
+		</form>
+		</div>
+	<hr>
+    	<div >	
+    		<div">
+    		<button type='button' id="fetch-plot" class="button" style="">Fetch Plot</button>
+    		
+    		</div>
+    		<div>
+    		<img src="" id="fetch-p" height="600" width="850" alt="Count Plot" />
+    	</div>
+    <hr>
+    	<div>	
+    		</div>
+    		<div>
+    		<button type='button' id="fetch-word" class="button" style="">Fetch Word Cloud</button>
+    		</div>
+    		<div>
+    		<img src="" id="fetch-w"  height="600" width="600" alt="Word Cloud" />
+            </div>    	
+    	</div>
+	<hr>
+    	<div>
+        	<div>
+    		<button type='button' id="fetch-unigram" class="button" style="text-align:center;">Fetch Unigram</button>
+    		</div>
+    		<div>
+    		<img src="" id="fetch-u"  height="800" width="1200" alt="Unigram" />
+    		</div>
+    	</div>
+	</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+       $('#fetch-plot').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_p') }}",
+           type: "GET",
+           success: function(response) {
+               $("#fetch-p").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+    
+     $(document).ready(function() {
+       $('#fetch-unigram').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_u') }}",
+           type: "GET",
+           success: function(response) {
+               $("#fetch-u").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+    
+     $(document).ready(function() {
+       $('#fetch-word').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_w') }}",
+           type: "GET",
+           success: function(response) {
+               $("#fetch-w").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+
+    
+    
+  </script>
+
+
+  
+<hr>
+<!-- footer section -->
+<footer>
+	<div class="container" style="padding-top:10px">
+		<div class="row" >
+				<h3>Copyright© 2020 | Made At VIT, PUNE </h3>
+		</div>
+	</div>
+</footer>
+
+</html>
